@@ -38,7 +38,20 @@ for product in products:
 
 # navigation to checkout window
 driver.find_element_by_partial_link_text("Checkout").click()
+time.sleep(2)
+# navigation to final page
+driver.find_element_by_css_selector("button.btn-success").click()
+
+
+# check terms and coditions box, search for relevant country, sleep for results,
+# navigate to choose coutry, finally hit purchase and ultimately close window
+driver.find_element_by_css_selector("div.checkbox-primary").click()
+driver.find_element_by_css_selector("input.validate").send_keys("United")
+time.sleep(5)
+driver.find_element_by_link_text("United States of America").click()
+driver.find_element_by_css_selector("input.btn-success").click()
+
 
 # close window
-# time.sleep(2)
-# driver.close()
+time.sleep(2)
+driver.close()
